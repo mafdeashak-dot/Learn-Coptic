@@ -1,0 +1,157 @@
+/* =========== صفحة الدرس الفردية =================== */
+
+function getLessonIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return Number(params.get("id"));
+}
+
+function renderLesson() {
+  const id = getLessonIdFromURL();
+  const lesson = LESSONS.find((l) => l.id === id);
+  const root = document.getElementById("lessonRoot");
+
+  if (!lesson) {
+    root.innerHTML = `
+      <div class="empty-state">
+        <div class="glyph">Ⲁ</div>
+        <h3>لم يتم العثور على الدرس</h3>
+        <p>الرابط غير صحيح أو تم حذف هذا الدرس.</p>
+        <a class="btn btn-gold" style="margin-top:18px" href="videos.html">↩ العودة إلى كل الدروس</a>
+      </div>`;
+    return;
+  }
+
+  document.title = `${lesson.title} — اللغة القبطية`;
+
+  /* ---------- الفيديو ---------- */
+  const videoFrame = lesson.video
+    ? `<video controls preload="metadata" src="${lesson.video}"></video>`
+    : `<div class="video-placeholder">
+         <div class="glyph">🎥</div>
+         <p>سيتم إضافة فيديو هذا الدرس قريبًا</p>
+       </div>`;
+
+  const videoActions = lesson.video
+    ? `<div class="video-actions">
+         <a class="btn btn-outline" href="${lesson.video}" download>⬇ تحميل الفيديو</a>
+       </div>`
+    : "";
+
+  /* ---------- قسم PDF (يُخفى تلقائيًا إن لم توجد ملفات) ---------- */
+  const pdfSection = lesson.pdfs && lesson.pdfs.length
+    ? `
+    <div class="resource-block" id="pdfBlock">
+      <div class="illum-title">
+        <span class="illum-letter">Ⲡ̣</span>
+        <div><h2>  ⁙ ملفات PDF الخاصة بالدرس ⁙</h2><p>حمّل ملفات المراجعة الخاصة بهذا الدرس</p></div>
+      </div>
+      <div class="pdf-list">
+        ${lesson.pdfs.map((p) => `
+          <div class="pdf-item">
+  <div class="pdf-icon">📕</div>
+  <div class="pdf-info">
+    <strong>${p.title}</strong>
+    <span>${p.size || ""}</span>
+  </div>
+  <a class="pdf-dl" href="${p.file}" target="_blank" rel="noopener">👁 مشاهدة</a>
+  <a class="pdf-dl" href="${p.file}" download>⬇ تحميل</a>
+</div>
+          `).join("")}
+      </div>
+    </div>`
+    : "";
+
+  /* ---------- قسم الصور (يُخفى تلقائيًا إن لم توجد صور) ---------- */
+  const imagesSection = lesson.images && lesson.images.length
+    ? `
+    <div class="resource-block" id="imagesBlock">
+      <div class="illum-title">
+        <span class="illum-letter">Ⲓ̣</span>
+        <div><h2>⁙ صور ⁙</h2><p>اضغط على أي صورة لتكبيرها</p></div>
+      </div>
+      <div class="gallery-grid">
+        ${lesson.images.map((src) => `<img src="${src}" alt="${lesson.title}" data-lightbox="${src}">`).join("")}
+      </div>
+    </div>`
+    : "";
+
+  root.innerHTML = `
+    <div class="lesson-hero">
+      <span class="lesson-num">${lesson.category} · درس رقم ${lesson.id}</span>
+      <h1>${lesson.title}</h1>
+    </div>
+
+    <div class="video-frame">${videoFrame}</div>
+    ${videoActions}
+
+    <div class="divider-braid"></div>
+
+    <div class="lesson-explain">
+      <div class="illum-title">
+        <span class="illum-letter">Ⲉ̣</span>
+        <div><h2>⁙ شرح الدرس ⁙</h2></div>
+      </div>
+      <p>${lesson.explanation}</p>
+    </div>
+
+    ${pdfSection ? `<div class="divider-braid"></div>${pdfSection}` : ""}
+    ${imagesSection ? `<div class="divider-braid"></div>${imagesSection}` : ""}
+  `;
+
+  wireLightbox();
+  renderPager(id);
+}
+
+function renderPager(currentId) {
+  const idx = LESSONS.findIndex((l) => l.id === currentId);
+  const prev = LESSONS[idx - 1];
+  const next = LESSONS[idx + 1];
+  const pager = document.getElementById("lessonPager");
+
+  pager.innerHTML = `
+    ${prev
+      ? `<a class="pager-btn prev" href="lesson.html?id=${prev.id}">
+           <span>⬅</span>
+           <span><span class="lbl">الدرس السابق</span><br><span class="ttl">${prev.title}</span></span>
+         </a>`
+      : `<span class="pager-btn disabled"><span class="lbl">لا يوجد درس سابق</span></span>`}
+    ${next
+      ? `<a class="pager-btn next" href="lesson.html?id=${next.id}">
+           <span><span class="lbl">الدرس التالي</span><br><span class="ttl">${next.title}</span></span>
+           <span>➡</span>
+         </a>`
+      : `<span class="pager-btn disabled next"><span class="lbl">لا يوجد درس تالٍ</span></span>`}
+  `;
+}
+
+function wireLightbox() {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxDl = document.getElementById("lightboxDl");
+  if (!lightbox) return;
+
+  document.querySelectorAll("[data-lightbox]").forEach((img) => {
+    img.addEventListener("click", () => {
+      const src = img.getAttribute("data-lightbox");
+      lightboxImg.src = src;
+      lightboxDl.href = src;
+      lightbox.classList.add("open");
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderLesson();
+
+  const lightbox = document.getElementById("lightbox");
+  const closeBtn = document.getElementById("lightboxClose");
+  if (closeBtn) closeBtn.addEventListener("click", () => lightbox.classList.remove("open"));
+  if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.classList.remove("open");
+    });
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox) lightbox.classList.remove("open");
+  });
+});
