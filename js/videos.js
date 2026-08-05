@@ -33,7 +33,7 @@ function buildLessonCard(lesson) {
 function renderEmptyState(container, message) {
   container.innerHTML = `
     <div class="empty-state" style="grid-column:1/-1">
-      <div class="glyph">Ⲁ</div>
+      <div class="glyph">Ⲁ̣</div>
       <h3>لا توجد نتائج</h3>
       <p>${message}</p>
     </div>`;
