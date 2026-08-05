@@ -12,7 +12,6 @@
 }
 
 :root{
-  /* --- الألوان: بردية + نيل + ذهب مذهّب + عنّابي أيقوني --- */
   --papyrus:        #ECDFB8;
   --papyrus-2:       #E2D2A3;
   --card:            #F4E9C9;
@@ -209,7 +208,7 @@ background: linear-gradient(to right, #fffb00, #f8f6f6);
 .hero-inner{ position:relative; z-index:1; max-width: 780px; margin:0 auto; }
 .eyebrow{
   display:inline-flex; align-items:center; gap:8px;
-  font-size:.9rem; font-weight:700; letter-spacing:1px;
+  font-size:.8rem; font-weight:700; letter-spacing:1px;
   color: var(--gold-bright); background: rgba(244,233,201,.08);
   padding:7px 16px; border-radius: 999px; border:2px solid rgba(244,233,201,.25);
   margin-bottom: 22px;
