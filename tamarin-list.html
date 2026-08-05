@@ -113,11 +113,22 @@ body{
 <div class="illum-title" style="margin-bottom:26px">
         <span class="illum-letter">Ⲇ̣</span>
         <div><h2>التدريبات </h2></div>
-      </div>    <p>اختر التدريب اللي عايز تبدأ فيه.</p>
+      </div>   
+          <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="ابحث عن تدريب... مثال: الحروف">
+      </div>
+
+      <p>اختر التدريب اللي عايز تبدأ فيه.</p>
   </div>
 
 
   <div class="exercise-list">
+
+  <div class="empty-state" id="noResults" style="display:none; text-align:center; margin:20px 0;">
+            <div class="glyph">Ⲓ̣</div>
+            <h3>لا توجد نتائج</h3>
+          </div>
 
     <a class="exercise-card" href="exercises/exer1.html">
       <span class="exercise-num">1</span>
@@ -201,7 +212,7 @@ body{
       <span class="exercise-go">⟵</span>
     </a>
 
-    
+
   </div>
 </div>
 
@@ -243,3 +254,4 @@ navToggle.addEventListener("click", () => mainNav.classList.toggle("open"));
 
 </body>
 </html>
+
