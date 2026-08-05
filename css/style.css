@@ -479,6 +479,16 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 
 /* ---------- استجابة الهاتف ---------- */
 @media (max-width: 860px){
+
+.eyebrow{
+  font-size:.5rem; 
+}
+
+.coptic-cap1{ 
+ font-size:.8rem;
+}
+
+  
   .brand-text small{
   display:block; font-family: var(--font-body); font-size:1.3rem; font-weight:300; 
   opacity:1; letter-spacing:.6px; color: var(--gold-bright);
