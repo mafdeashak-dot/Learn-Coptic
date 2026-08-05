@@ -1,15 +1,9 @@
-/* =====================================================
-   أكاديمية اللغة القبطية — Style System
-   وحي التصميم: مخطوطة قبطية قديمة — ورق البردي، الحبر، وأحرف
-   مذهّبة كما في عناوين المخطوطات الكنسية.
-   ===================================================== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
 
 
-/* خط زخرفي مخصص — CS Ava Veni
-   ضع ملفات الخط داخل مجلد /fonts بنفس هذه الأسماء (woff2 / woff / ttf / otf) */
 @font-face{
   font-family: 'CS Ava Veni';
   src: url('../fonts/CS-Ava-Veni.woff2') format('woff2'),
@@ -21,7 +15,6 @@
 }
 
 :root{
-  /* --- الألوان: بردية + نيل + ذهب مذهّب + عنّابي أيقوني --- */
   --papyrus:        #ECDFB8;
   --papyrus-2:       #E2D2A3;
   --card:            #F4E9C9;
@@ -45,7 +38,6 @@
 
   --font-display: 'CS Ava Veni', 'Amiri', 'Times New Roman', serif;
   --font-body: 'CS Ava Veni', 'Cairo', 'Tahoma', sans-serif;
-  /* نفس الخط، متاح أيضًا باسم صريح للعناصر القبطية بالكامل */
   --font-coptic: 'CS Ava Veni', 'Amiri', serif;
 
   --halo: radial-gradient(circle, rgba(214,169,74,.55) 0%, rgba(214,169,74,0) 70%);
@@ -60,7 +52,6 @@ html.dark{
   --card:     #172825;
   --ink:      #EAE0C4;
   --ink-soft: #C9BE9E;
-  /* --nile تفضل ثابتة عمدًا: دايمًا خلفية غامقة مع نص فاتح فوقها في الوضعين */
   --nile-text:#6FD6C7;
   --gold:     #D6A94A;
   --gold-bright:#EFCB78;
