@@ -492,12 +492,12 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 
 
 .eyebrow{
-  font-size:.7rem; 
+  font-size:.8rem; 
   transform: translateX(6px);
 }
 
 .coptic-cap1{ 
- font-size:.9rem;
+ font-size:1rem;
 }
 
   .brand-text small{
