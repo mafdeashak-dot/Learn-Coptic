@@ -487,6 +487,30 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 .footer-links a:hover{ color:#F4E9C9; }
 .footer-note{ margin-top: 26px; padding-top:20px; border-top:1px solid rgba(244,233,201,.12); font-size:1rem; color:#9C8F6C; text-align:center; }
 
+
+
+
+.exercise-list{ display:grid; gap:16px; margin-top: 26px; }
+
+.exercise-card{
+  display:flex; align-items:center; gap:16px; padding: 20px 22px;
+  background: var(--card); border:1px solid var(--line); border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1); transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.exercise-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-2); border-color: var(--gold); }
+
+.exercise-num{
+  flex:none; width:46px; height:46px; border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 70%);
+  color:#2A2015; font-weight:800; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center;
+}
+.exercise-info{ flex:1; min-width:0; }
+.exercise-info h3{ font-family: var(--font-display); margin:0 0 4px; font-size:1.15rem; }
+.exercise-info p{ margin:0; font-size:.88rem; color: var(--ink-soft); }
+.exercise-go{ flex:none; font-weight:700; color: var(--gold); font-size:1.3rem; }
+
+
 /* ---------- استجابة الهاتف ---------- */
 @media (max-width: 860px){
 
