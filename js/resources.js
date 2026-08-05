@@ -77,8 +77,67 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!el) return;
         el.style.display = key === target ? "" : "none";
       });
+      searchResources();
     });
   });
+
+
+
+const searchInput = document.getElementById("searchInput");
+
+function searchResources() {
+  const value = searchInput.value.trim().toLowerCase();
+
+  // لو تبويب الكتب مفتوح
+  if (panels.books.style.display !== "none") {
+    const filteredBooks = BOOKS.filter(book =>
+      book.title.toLowerCase().includes(value) ||
+      book.description.toLowerCase().includes(value)
+    );
+
+    document.getElementById("booksGrid").innerHTML =
+      filteredBooks.length
+        ? filteredBooks.map(buildBookCard).join("")
+        : `
+          <div class="empty-state" style="grid-column:1/-1">
+            <div class="glyph">Ⲡ̣</div>
+            <h3>لا توجد نتائج</h3>
+          </div>
+        `;
+  }
+
+  // لو تبويب الصور مفتوح
+  if (panels.gallery.style.display !== "none") {
+    const filteredImages = GALLERY_IMAGES.filter(img =>
+      img.title.toLowerCase().includes(value)
+    );
+
+    const gallery = document.getElementById("galleryGrid");
+
+    gallery.innerHTML =
+      filteredImages.length
+        ? filteredImages.map(item => `
+            <div class="gallery-item">
+              <img
+                src="${item.src}"
+                alt="${item.title}"
+                data-lightbox="${item.src}">
+              <h4 class="gallery-title">${item.title}</h4>
+            </div>
+          `).join("")
+        : `
+          <div class="empty-state" style="grid-column:1/-1">
+            <div class="glyph">Ⲓ̣</div>
+            <h3>لا توجد نتائج</h3>
+          </div>
+        `;
+
+    wireLightboxResources();
+  }
+}
+
+searchInput.addEventListener("input", searchResources);
+
 
   const lightbox = document.getElementById("lightbox");
   const closeBtn = document.getElementById("lightboxClose");
