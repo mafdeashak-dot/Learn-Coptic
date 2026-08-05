@@ -501,7 +501,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 }
 
   .brand-text small{
-  display:block; font-family: var(--font-body); font-size:1.2rem; font-weight:300; 
+  display:block; font-family: var(--font-body); font-size:1.3rem; font-weight:300; 
   opacity:1; letter-spacing:.6px; color: var(--gold-bright);
 }
   .about-grid{ grid-template-columns: 1fr; }
