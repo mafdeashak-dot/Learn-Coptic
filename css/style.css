@@ -215,7 +215,7 @@ background: linear-gradient(to right, #fffb00, #f8f6f6);
 }
 
 .coptic-cap1{ font-family: var(--font-coptic); font-weight:400; 
-background: linear-gradient(to right, #8cff00, #ffffff);
+background: linear-gradient(to right, #f8f6f6, #ffcc00);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
  font-size:1.1rem;
