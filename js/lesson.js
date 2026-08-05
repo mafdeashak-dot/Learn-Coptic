@@ -15,7 +15,6 @@ function getYoutubeEmbed(url) {
       return `https://www.youtube.com/embed/${u.pathname.slice(1)}`;
     }
 
-    // رابط youtube.com/watch?v=
     if (u.hostname.includes("youtube.com")) {
       const id = u.searchParams.get("v");
       if (id) {
@@ -23,7 +22,6 @@ function getYoutubeEmbed(url) {
       }
     }
 
-    // رابط embed جاهز
     if (u.pathname.startsWith("/embed/")) {
       return url;
     }
@@ -34,25 +32,21 @@ function getYoutubeEmbed(url) {
   return "";
 }
 
-/* تحويل رابط Google Drive العادي إلى رابط preview قابل للعرض داخل iframe */
 function getGoogleDriveEmbed(url) {
   try {
     const u = new URL(url);
     if (!u.hostname.includes("drive.google.com")) return "";
 
-    // شكل: https://drive.google.com/file/d/FILE_ID/view
     const match = u.pathname.match(/\/file\/d\/([^/]+)/);
     if (match && match[1]) {
       return `https://drive.google.com/file/d/${match[1]}/preview`;
     }
 
-    // شكل: https://drive.google.com/open?id=FILE_ID
     const idParam = u.searchParams.get("id");
     if (idParam) {
       return `https://drive.google.com/file/d/${idParam}/preview`;
     }
 
-    // شكل جاهز بالفعل: .../preview
     if (u.pathname.includes("/preview")) {
       return url;
     }
@@ -67,7 +61,6 @@ function getGoogleDriveEmbed(url) {
 function resolveVideoSource(url) {
   if (!url) return null;
 
-  // لو الرابط مش رابط كامل (http/https) هنعتبره ملف محلي على السيرفر
   const isFullUrl = /^https?:\/\//i.test(url);
 
   if (isFullUrl) {
@@ -87,11 +80,9 @@ function resolveVideoSource(url) {
       console.error(e);
     }
 
-    // رابط فيديو مباشر (مثلاً ملف .mp4 مرفوع على سيرفر خارجي)
     return { type: "local", src: url };
   }
 
-  // مسار محلي داخل المشروع (مثلاً videos/lesson1.mp4)
   return { type: "local", src: url };
 }
 
@@ -223,14 +214,14 @@ function renderPager(currentId) {
   pager.innerHTML = `
     ${prev
       ? `<a class="pager-btn prev" href="lesson.html?id=${prev.id}">
-           <span>⬅</span>
+           <span>→</span>
            <span><span class="lbl">الدرس السابق</span><br><span class="ttl">${prev.title}</span></span>
          </a>`
       : `<span class="pager-btn disabled"><span class="lbl">لا يوجد درس سابق</span></span>`}
     ${next
       ? `<a class="pager-btn next" href="lesson.html?id=${next.id}">
            <span><span class="lbl">الدرس التالي</span><br><span class="ttl">${next.title}</span></span>
-           <span>➡</span>
+           <span>←</span>
          </a>`
       : `<span class="pager-btn disabled next"><span class="lbl">لا يوجد درس تالٍ</span></span>`}
   `;
