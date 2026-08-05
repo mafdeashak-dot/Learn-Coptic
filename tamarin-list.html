@@ -7,78 +7,6 @@
 
 <title>Learn Coptic - التدريبات</title>
 
-<style>
-
-:root{
-  --papyrus:  #ECDFB8;
-  --card:     #F4E9C9;
-  --ink:      #2A2015;
-  --ink-soft: #4B3C28;
-  --nile:     #17423F;
-  --nile-2:   #0F2E2C;
-  --gold:     #B4832A;
-  --gold-bright:#D6A94A;
-  --oxblood-2:#5E1F1C;
-  --halo:     radial-gradient(circle, rgba(214,169,74,.55) 0%, rgba(214,169,74,0) 70%);
-  --line:     rgba(42,32,21,.16);
-  --radius-s: 6px;
-  --radius-m: 10px;
-  --radius-l: 16px;
-  --shadow-1: 0 1px 2px rgba(23,66,63,.08), 0 6px 20px rgba(23,66,63,.08);
-  --shadow-2: 0 4px 10px rgba(23,66,63,.12), 0 14px 34px rgba(23,66,63,.14);
-  --font-display: 'CS Ava Veni', 'Amiri', serif;
-  --font-body: 'CS Ava Veni', 'Cairo', 'Tahoma', sans-serif;
-  --font-coptic: 'CS Ava Veni', 'Amiri', serif;
-}
-html.dark{
-  --papyrus:  #12201E;
-  --card:     #172825;
-  --ink:      #EAE0C4;
-  --ink-soft: #C9BE9E;
-  --gold:     #D6A94A;
-  --gold-bright:#EFCB78;
-  --line:     rgba(234,224,196,.14);
-}
-*{ box-sizing:border-box; }
-a{ color: inherit; text-decoration: none; }
-body{
-  margin:0; font-family: var(--font-body); background: var(--papyrus); color: var(--ink);
-  direction:rtl; text-align:right; line-height:1.7; transition: background .3s, color .3s;
-}
-
-
-
-
-.main-nav a .nav-cop{ font-family: var(--font-coptic); font-size:1.3rem; color: var(--gold-bright); font-weight:400; }
-.main-nav a .nav-ar{ font-size:1rem; font-weight:500; opacity:.8; }
-.main-nav a:hover, .main-nav a.active{ background: rgba(244,233,201,.12); color:#fff; }
-.main-nav a.active .nav-ar{ opacity:1; }
-.main-nav a.active::after{
-  content:""; position:absolute; right:14px; left:14px; bottom:2px; height:2px;
-  background: var(--gold-bright); border-radius:2px;
-}
-
-
-.exercise-list{ display:grid; gap:16px; margin-top: 26px; }
-
-.exercise-card{
-  display:flex; align-items:center; gap:16px; padding: 20px 22px;
-  background: var(--card); border:1px solid var(--line); border-radius: var(--radius-l);
-  box-shadow: var(--shadow-1); transition: transform .2s, box-shadow .2s, border-color .2s;
-}
-.exercise-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-2); border-color: var(--gold); }
-
-.exercise-num{
-  flex:none; width:46px; height:46px; border-radius:50%;
-  background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 70%);
-  color:#2A2015; font-weight:800; font-size:1.1rem;
-  display:flex; align-items:center; justify-content:center;
-}
-.exercise-info{ flex:1; min-width:0; }
-.exercise-info h3{ font-family: var(--font-display); margin:0 0 4px; font-size:1.15rem; }
-.exercise-info p{ margin:0; font-size:.88rem; color: var(--ink-soft); }
-.exercise-go{ flex:none; font-weight:700; color: var(--gold); font-size:1.3rem; }
-</style>
 </head>
 <body>
 
@@ -232,22 +160,9 @@ body{
   </div>
 </footer>
 
-<script>
-const themeToggle = document.getElementById("themeToggle");
-const savedTheme = localStorage.getItem("coptic-academy-theme") || "light";
-if (savedTheme === "dark") { document.documentElement.classList.add("dark"); themeToggle.textContent = "☀️"; }
-themeToggle.addEventListener("click", () => {
-  const isDark = document.documentElement.classList.toggle("dark");
-  localStorage.setItem("coptic-academy-theme", isDark ? "dark" : "light");
-  themeToggle.textContent = isDark ? "☀️" : "🌙";
-});
-
-const navToggle = document.getElementById("navToggle");
-const mainNav = document.getElementById("mainNav");
-navToggle.addEventListener("click", () => mainNav.classList.toggle("open"));
-</script>
-
+<script src="js/app.js"></script>
 <script src="js/function.js"></script>
+
 
 </body>
 </html>
