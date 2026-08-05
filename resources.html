@@ -5,7 +5,6 @@
 <script>(function(){try{var t=localStorage.getItem("coptic-academy-theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";}if(t==="dark")document.documentElement.classList.add("dark");}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الصور وملفات PDF — Learn Coptic  </title>
-<meta name="description" content="حمّل كتب وملفات PDF لتعلم اللغة القبطية، وتصفّح معرض الصور.">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="resources">
@@ -41,6 +40,10 @@
       <div class="res-tabs">
         <button class="res-tab active" data-tab="books">ⳉ الكتب</button>
         <button class="res-tab" data-tab="gallery">ⳉ معرض الصور</button>
+      </div>
+    <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="ابحث عن صور او كتب... مثال: الحروف">
       </div>
     </div>
   </section>
@@ -86,7 +89,8 @@
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 <script src="js/function.js"></script>
-
+<script src="js/video.js"></script>
 <script src="js/resources.js"></script>
 </body>
 </html>
+
