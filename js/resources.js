@@ -100,7 +100,7 @@ function searchResources() {
         ? filteredBooks.map(buildBookCard).join("")
         : `
           <div class="empty-state" style="grid-column:1/-1">
-            <div class="glyph">Ⲡ̣</div>
+            <div class="glyph">Ⲁ̣</div>
             <h3>لا توجد نتائج</h3>
           </div>
         `;
@@ -127,7 +127,7 @@ function searchResources() {
           `).join("")
         : `
           <div class="empty-state" style="grid-column:1/-1">
-            <div class="glyph">Ⲓ̣</div>
+            <div class="glyph">Ⲁ̣</div>
             <h3>لا توجد نتائج</h3>
           </div>
         `;
