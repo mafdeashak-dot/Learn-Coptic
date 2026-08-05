@@ -493,7 +493,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 
 .eyebrow{
   font-size:.8rem; 
-   left: 10px;
+   left: -2px;
 }
 
 .coptic-cap1{ 
