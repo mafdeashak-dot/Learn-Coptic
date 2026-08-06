@@ -214,8 +214,6 @@ background: linear-gradient(to right, #ffee00, #f8f6f6);
   color: var(--gold-bright); background: rgba(244,233,201,.08);
   padding:7px 16px; border-radius: 999px; border:2px solid rgba(244,233,201,.25);
   margin-bottom: 22px;
-    white-space: nowrap;
-
 }
 
 .coptic-cap1{ font-family: var(--font-coptic); font-weight:400; 
