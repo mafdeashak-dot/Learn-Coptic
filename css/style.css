@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
 
@@ -67,10 +66,12 @@ html.dark{
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; width:100%; }
 
 body{
   margin:0;
+  overflow-x: hidden;
+  width:100%;
   font-family: var(--font-body);
   background: var(--papyrus);
   color: var(--ink);
@@ -103,12 +104,14 @@ button{ font-family:inherit; cursor:pointer; }
 background: linear-gradient(to right, #ffee00, #f8f6f6);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
+overflow-wrap: anywhere;
 }
 .nav-wrap{
   max-width:1180px; margin:0 auto; padding: 14px 20px;
   display:flex; align-items:center; justify-content:space-between; gap:16px;
+  min-width:0;
 }
-.brand{ display:flex; align-items:center; gap:12px; font-family:var(--font-display); }
+.brand{ display:flex; align-items:center; gap:12px; font-family:var(--font-display); min-width:0; flex:1 1 auto; }
 .brand-mark{
   position:relative; width:50px; height:50px; border-radius:50%;
   background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 60%, var(--oxblood-2) 100%);
@@ -121,12 +124,12 @@ background: linear-gradient(to right, #ffee00, #f8f6f6);
   background: var(--halo); z-index:-1; opacity:.9;
 }
 .brand-mark .cross{ position:relative;  top:1px; }
-.brand-text{ font-size: 1.5rem; font-weight:700; letter-spacing:.3px; }
+.brand-text{ font-size: 1.5rem; font-weight:700; letter-spacing:.3px; min-width:0; max-width:100%; overflow-wrap:anywhere; }
 .brand-text small{
   display:block; font-family: var(--font-body);  font-weight:300; 
   opacity:1; letter-spacing:.6px; color: var(--gold-bright);
     white-space: nowrap;
-font-size: clamp(2rem, 1vw, 1rem);
+font-size: clamp(0.85rem, 2vw, 1.1rem);
 }
 
 .main-nav{ display:flex; 
@@ -150,7 +153,7 @@ font-size: clamp(2rem, 1vw, 1rem);
   background: var(--gold-bright); border-radius:2px;
 }
 
-.header-actions{ display:flex; align-items:center; gap:8px; }
+.header-actions{ display:flex; align-items:center; gap:8px; flex:none; }
 .icon-btn{
   width:50px; height:50px; border-radius:50%;
   border:1px solid rgba(244,233,201,.25); background: rgba(244,233,201,.08);
@@ -457,7 +460,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 .lightbox-dl{ left:74px; }
 
 /* ---------- صفحة المصادر ---------- */
-.res-tabs{ display:flex; gap:10px; margin-bottom: 30px; }
+.res-tabs{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 30px; }
 .res-tab{
   padding:10px 22px; border-radius: var(--radius-m); font-weight:700; font-size:.95rem;
   background: var(--card); border:1px solid var(--line); color: var(--ink-soft);
@@ -540,6 +543,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
   display:block; font-family: var(--font-body); font-size:1.5rem; font-weight:300; 
   opacity:1; letter-spacing:.6px; color: var(--gold-bright);
 }
+  .brand-text{ font-size: 1.15rem; }
   .about-grid{ grid-template-columns: 1fr; }
   .nav-toggle{
     font-size: large;
@@ -640,4 +644,39 @@ transition: .5s;
     display: block;
     border: none;
     border-radius: 20px;
+}
+
+/* ---------- تحسينات إضافية للشاشات الصغيرة جدًا (الهواتف) ---------- */
+@media (max-width: 480px){
+  .nav-wrap{ padding: 12px 14px; gap: 10px; }
+  .brand-mark{ width:42px; height:42px; font-size:20px; }
+  .brand-text{ font-size: 1.15rem; }
+  .icon-btn{ width:42px; height:42px; font-size:.95rem; }
+  .nav-toggle{ width:42px; height:42px; }
+  .header-actions{ gap:6px; }
+
+  .hero{ padding: 48px 14px 40px; }
+  .hero-cross{ font-size: 4rem; margin-bottom: 30px; }
+  .hero-glyphs{ font-size: 4.5rem; letter-spacing: 10px; }
+  .hero h1{ font-size: 1.6rem; }
+  .hero p.lead{ font-size: 1rem; }
+  .eyebrow{ font-size:.75rem; padding:6px 12px; }
+
+  .section{ padding: 40px 0; }
+  .illum-letter{ width:50px; height:50px; font-size:2rem; }
+  .illum-title h2{ font-size:1.4rem; }
+
+  .card-grid{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+  .about-card{ padding: 24px 18px 20px; }
+
+  .res-tabs{ gap:6px; }
+  .res-tab{ padding:8px 14px; font-size:.85rem; }
+
+  .exercise-card{ padding: 14px 16px; gap: 12px; }
+  .exercise-num{ width:38px; height:38px; font-size:.95rem; }
+
+  .lightbox-close{ left:14px; top:14px; }
+  .lightbox-dl{ left:60px; top:14px; }
+
+  .book-grid{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); }
 }
