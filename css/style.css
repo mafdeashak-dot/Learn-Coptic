@@ -646,7 +646,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
   }
 
 .coptic-cap1{ 
-      font-size:1rem;
+      font-size:1.2rem;
 }
 
  .main-nav a .nav-cop{ font-size:1rem; }
