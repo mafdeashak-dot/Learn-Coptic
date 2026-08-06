@@ -1,8 +1,11 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
 
 
-
+/* خط زخرفي مخصص — CS Ava Veni
+   ضع ملفات الخط داخل مجلد /fonts بنفس هذه الأسماء (woff2 / woff / ttf / otf) */
 @font-face{
   font-family: 'CS Ava Veni';
   src: url('../fonts/CS-Ava-Veni.woff2') format('woff2'),
@@ -14,6 +17,7 @@
 }
 
 :root{
+  /* --- الألوان: بردية + نيل + ذهب مذهّب + عنّابي أيقوني --- */
   --papyrus:        #ECDFB8;
   --papyrus-2:       #E2D2A3;
   --card:            #F4E9C9;
@@ -37,6 +41,7 @@
 
   --font-display: 'CS Ava Veni', 'Amiri', 'Times New Roman', serif;
   --font-body: 'CS Ava Veni', 'Cairo', 'Tahoma', sans-serif;
+  /* نفس الخط، متاح أيضًا باسم صريح للعناصر القبطية بالكامل */
   --font-coptic: 'CS Ava Veni', 'Amiri', serif;
 
   --halo: radial-gradient(circle, rgba(214,169,74,.55) 0%, rgba(214,169,74,0) 70%);
@@ -51,6 +56,7 @@ html.dark{
   --card:     #172825;
   --ink:      #EAE0C4;
   --ink-soft: #C9BE9E;
+  /* --nile تفضل ثابتة عمدًا: دايمًا خلفية غامقة مع نص فاتح فوقها في الوضعين */
   --nile-text:#6FD6C7;
   --gold:     #D6A94A;
   --gold-bright:#EFCB78;
@@ -65,7 +71,6 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin:0;
-  overflow-x: hidden;
   font-family: var(--font-body);
   background: var(--papyrus);
   color: var(--ink);
@@ -121,7 +126,7 @@ background: linear-gradient(to right, #ffee00, #f8f6f6);
   display:block; font-family: var(--font-body);  font-weight:300; 
   opacity:1; letter-spacing:.6px; color: var(--gold-bright);
     white-space: nowrap;
-font-size: clamp(0.85rem, 2vw, 1.1rem);
+font-size: clamp(2rem, 1vw, 1rem);
 }
 
 .main-nav{ display:flex; 
@@ -452,7 +457,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 .lightbox-dl{ left:74px; }
 
 /* ---------- صفحة المصادر ---------- */
-.res-tabs{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom: 30px; }
+.res-tabs{ display:flex; gap:10px; margin-bottom: 30px; }
 .res-tab{
   padding:10px 22px; border-radius: var(--radius-m); font-weight:700; font-size:.95rem;
   background: var(--card); border:1px solid var(--line); color: var(--ink-soft);
@@ -636,38 +641,3 @@ transition: .5s;
     border: none;
     border-radius: 20px;
 }
-
-@media (max-width: 480px){
-  .nav-wrap{ padding: 12px 14px; gap: 10px; }
-  .brand-mark{ width:42px; height:42px; font-size:20px; }
-  .brand-text{ font-size: 1.15rem; }
-  .icon-btn{ width:42px; height:42px; font-size:.95rem; }
-  .nav-toggle{ width:42px; height:42px; }
-  .header-actions{ gap:6px; }
-
-  .hero{ padding: 48px 14px 40px; }
-  .hero-cross{ font-size: 4rem; margin-bottom: 30px; }
-  .hero-glyphs{ font-size: 4.5rem; letter-spacing: 10px; }
-  .hero h1{ font-size: 1.6rem; }
-  .hero p.lead{ font-size: 1rem; }
-  .eyebrow{ font-size:.75rem; padding:6px 12px; }
-
-  .section{ padding: 40px 0; }
-  .illum-letter{ width:50px; height:50px; font-size:2rem; }
-  .illum-title h2{ font-size:1.4rem; }
-
-  .card-grid{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
-  .about-card{ padding: 24px 18px 20px; }
-
-  .res-tabs{ gap:6px; }
-  .res-tab{ padding:8px 14px; font-size:.85rem; }
-
-  .exercise-card{ padding: 14px 16px; gap: 12px; }
-  .exercise-num{ width:38px; height:38px; font-size:.95rem; }
-
-  .lightbox-close{ left:14px; top:14px; }
-  .lightbox-dl{ left:60px; top:14px; }
-
-  .book-grid{ grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); }
-}
-
