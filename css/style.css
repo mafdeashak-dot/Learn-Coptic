@@ -624,7 +624,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 
  .hero-cross{
     font-size:6rem;
-    margin-bottom:40px;
+    margin-bottom:50px;
   }
 
   .hero-glyphs{
@@ -645,6 +645,13 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
     padding:7px 14px;
   }
 
+.coptic-cap1{ 
+      font-size:1rem;
+}
+
+ .main-nav a .nav-cop{ font-size:1rem; }
+  .main-nav a .nav-ar{ font-size:.8rem;  }
+  
   .section{
     padding:50px 0;
   }
