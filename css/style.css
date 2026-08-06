@@ -1,9 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
-
-
-
 @font-face{
   font-family: 'CS Ava Veni';
   src: url('../fonts/CS-Ava-Veni.woff2') format('woff2'),
@@ -171,14 +168,14 @@ background: linear-gradient(to right, #ffee00, #f8f6f6);
 /* ---------- هيرو الصفحة الرئيسية ---------- */
 .hero{
   position:relative; overflow:hidden;
-  padding: 84px 20px 70px;
+  padding: 20px 20px 70px;
   text-align:center;
   background: linear-gradient(180deg, var(--nile) 0%, var(--nile-2) 100%);
   color:#F4E9C9;
   border-bottom: 1px solid rgba(214,169,74,.4);
 }
 .hero-cross{
-  position:relative; width:46px; height:46px; margin: 0 auto 70px;
+  position:relative; width:46px; height:46px; margin: 0 auto 50px;
   display:flex; align-items:center; justify-content:center;
   font-family: var(--font-display); font-size: 7rem; color: var(--gold-bright);
 }
@@ -518,9 +515,7 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
 
 
 .eyebrow{
-  font-size:.8rem;
-    transform: translateX(5px);
- 
+  font-size:.8rem; 
 }
 
 .coptic-cap1{ 
@@ -586,13 +581,15 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
     font-weight:700;
 }
 
+.names{
+    display: flex;}
 }
 
 
 @media (max-width: 480px){
   .nav-wrap{ padding: 14px 16px; gap: 12px; }
 
-.brand-mark{
+  .brand-mark{
     width:47px;
     height:47px;
     font-size:23px;
@@ -621,8 +618,8 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
     padding:60px 18px 50px;
   }
 
- .hero-cross{
-    font-size:6rem;
+  .hero-cross{
+    font-size:5rem;
     margin-bottom:50px;
   }
 
@@ -643,14 +640,16 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
     font-size:1rem;
     padding:7px 14px;
   }
-
 .coptic-cap1{ 
-      font-size:1.2rem;
+      font-size:1rem;
+
 }
+
 
  .main-nav a .nav-cop{ font-size:1rem; }
   .main-nav a .nav-ar{ font-size:.8rem;  }
-  
+
+
   .section{
     padding:50px 0;
   }
@@ -707,8 +706,9 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
   .book-grid{
     grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
   }
-}
 
+  
+}
 
                 /*--------------------------- scroll_up  ----------------------- */
 .scroll_up{
@@ -751,6 +751,7 @@ transition: .5s;
     border: none;
     border-radius: 20px;
 }
+
 
 .names{
     display: flex;
