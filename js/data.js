@@ -609,6 +609,19 @@ thumbnail: "images/image.png",
     "pdfs": [],
     "images": []
   }
+,
+   { "id": 36,
+    "title": "زمن المضارع الدال علي الحالة (الحاضر الثالث)",
+    "category": ["الأزمنة"],
+    "description": "",
+    "thumbnail": "images/image.png",
+    "video": "https://drive.google.com/file/d/1MVTeie3cwrHetw1HWXFpdNDjxKCN3Vpt/view?usp=drive_link",
+    "duration": "",
+    "explanation": "",
+    "pdfs": [],
+    "images": []
+  }
+  
 ];
  
   
