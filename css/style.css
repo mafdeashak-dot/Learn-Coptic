@@ -2,6 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
 
+
+
+
 @font-face{
   font-family: 'CS Ava Veni';
   src: url('../fonts/CS-Ava-Veni.woff2') format('woff2'),
@@ -11,7 +14,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 :root{
   --papyrus:        #ECDFB8;
@@ -583,8 +585,6 @@ html[dir="rtl"] .pdf-item:hover{ transform: translateX(3px); }
     font-weight:700;
 }
 
-.names{
-    display: flex;}
 }
 
 
@@ -780,3 +780,6 @@ font-family: "El Messiri", sans-serif;
     letter-spacing: 1px;
 
 }
+
+
+
